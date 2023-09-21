@@ -1,11 +1,11 @@
-import React from 'react'
-import ExpenseItem from '../ExpenseItem/ExpenseItem'
-import'./Expenses.css'
+import React, { useState } from "react";
+import ExpenseItem from "../ExpenseItem/ExpenseItem";
+import "./Expenses.css";
 
 const Expenses = (props) => {
   return (
-    <div className='expenses'>
-        <ExpenseItem
+    <div className="expenses">
+      <ExpenseItem
         title={props.expenses[0].title}
         amount={props.expenses[0].amount}
         date={props.expenses[0].date}
@@ -25,9 +25,8 @@ const Expenses = (props) => {
         amount={props.expenses[3].amount}
         date={props.expenses[3].date}
       />
-      
     </div>
-  )
-}
+  );
+};
 
-export default Expenses
+export default Expenses;

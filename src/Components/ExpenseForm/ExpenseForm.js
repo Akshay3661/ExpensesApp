@@ -36,15 +36,19 @@ const ExpenseForm = (props) => {
   const submitHandler = (event) => {
     event.preventDefault();
 
-    const expenseDeta = {
-      title: enteredTitle,
-      amount: enteredAmount,
-      date: new Date(enteredDate),
-    };
-    props.onSaveExpenseData(expenseDeta);
-    setEnteredTitle("");
-    setEnteredAmount("");
-    setEnteredDate("");
+    if (!enteredTitle || !enteredAmount || !enteredDate) {
+      alert("please Fill all Fields");
+    } else {
+      const expenseDeta = {
+        title: enteredTitle,
+        amount: enteredAmount,
+        date: new Date(enteredDate),
+      };
+      props.onSaveExpenseData(expenseDeta);
+      setEnteredTitle("");
+      setEnteredAmount("");
+      setEnteredDate("");
+    }
   };
 
   return (
@@ -63,8 +67,6 @@ const ExpenseForm = (props) => {
           <input
             type="number"
             value={enteredAmount}
-            min="0.01"
-            stap="0.01"
             onChange={amountChangeHandler}
           />
         </div>
